@@ -1,0 +1,957 @@
+
+/* ===================================================================
+ * # Imports
+ *
+ * ------------------------------------------------------------------- */
+
+@import "_breakpoints.scss";
+@import "_functions.scss";
+@import "_variables.scss";
+
+/* ===================================================================
+ * # Variables
+ *
+ * ------------------------------------------------------------------- */
+
+
+/* ===================================================================
+ * # Mixins
+ *
+ * ------------------------------------------------------------------- */
+
+ // Hover line animation
+ @mixin line-animation {
+   a {
+     position: relative;
+     padding: 0.35em;
+     margin: 0;
+     appearance: none;
+     background: transparent;
+     border: 0;
+     overflow-x: hidden;
+     transition: color 0.5s ease;
+     &:after{
+       content:'';
+       position: absolute;
+       top: 50%;
+       left: 0;
+       height:0.5px;
+       width: 0;
+       background: #fff;
+       transition: width 0.4s ease;
+     }
+     &:hover{
+       cursor:pointer;
+       color: rgba(#555, 0.75);
+       transition: color 0.5s ease;
+     }
+     &:hover:after{
+       width:100%;
+       transition: width 0.4s ease;
+     }
+     // Yeah... I know
+     &:focus{
+       outline: 0;
+     }
+   }
+ }
+
+
+/* ===================================================================
+ * # base style overrides
+ *
+ * ------------------------------------------------------------------- */
+
+ @font-face {
+     font-family: "raiderfont";
+     src: url(fonts/raiderfont.ttf);
+ }
+
+ * {
+   box-sizing: border-box;
+ }
+
+ body {
+   line-height: 1.6;
+   color: #fff;;
+   background-color: #fff;
+   position: relative;
+ }
+
+ a {
+   text-decoration: none;
+   color: #000;
+   &:hover {
+     color: #000;
+   }
+ }
+
+ a:link {
+   text-decoration: none;
+   color: #000;
+ }
+
+ h1 {
+   font-family: 'raiderfont';
+ }
+
+ h2,h3,h4,h5 {
+   font-family: 'raiderfont';
+   color: #1C1B20;
+   word-spacing: 0.5rem;
+   letter-spacing: -1px;
+   margin-bottom: 1.5em;
+ }
+
+ span {
+   font-family: 'Playfair Display', serif;
+ }
+
+ p {
+   color: #515056;
+   letter-spacing: 0.1rem;
+   font-size: .85rem;
+   font-family: 'Open Sans', sans-serif;
+ }
+
+ .wrapper {
+   background-color: #fff;
+   @include media-breakpoint-up(lg) {
+     padding: 3em 3em 0em 3em;
+   }
+ }
+
+ #site-content {
+   background-color: #F3F4F5;
+ }
+
+/* ===================================================================
+ * # header styles
+ *
+ * ------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------
+ * ## header logo
+ * ------------------------------------------------------------------- */
+
+ .header-logo {
+   background-color: #fff;
+   background-repeat: no-repeat;
+   justify-content: center;
+   align-items: center;
+   padding: 0;
+   width: 50px;
+   height: 50px;
+   display: flex;
+
+ }
+
+/* -------------------------------------------------------------------
+ * ## main navigation
+ * ------------------------------------------------------------------- */
+
+ // LINKS RESET
+ a {
+   text-decoration: none;
+   &:hover, :focus {
+     color: darken(white, 20%);
+   }
+ }
+ // LINKS IN MENU HOVER EFFECT
+ .menu-left a {
+   display: inline-block;
+   position: relative;
+   padding-bottom: 0px;
+   transition: color .35s ease;
+   &:before {
+     content: '';
+     display:block;
+     position: absolute;
+     left: 0;
+     bottom: -15px;
+     height: 5px;
+     width: 0;
+     transition: width 0s ease, background .35s ease;
+   }
+   &:after {
+     content: '';
+     display: block;
+     position: absolute;
+     right: 0;
+     bottom: -15px;
+     height: 5px;
+     width: 0;
+     background: #ffcd05;
+     transition: width .35s ease;
+   }
+   &:hover:before {
+     width: 100%;
+     background: #ffcd05;
+     transition: width .35s ease;
+   }
+   &:hover:after {
+     width: 100%;
+     background: transparent;
+     transition: all 0s ease;
+   }
+ }
+
+ header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   padding: .5rem 0em 0em 0em;
+   background: #fff;
+   z-index: 3;
+   will-change: transform;
+   transition: background .3s,
+   -webkit-transform .5s cubic-bezier(.694,.048,.335,1);
+   transition: transform .5s cubic-bezier(.694,.048,.335,1),background .3s;
+   transition: transform .5s cubic-bezier(.694,.048,.335,1),background .3s,
+   -webkit-transform .5s cubic-bezier(.694,.048,.335,1);
+   transform: translateY(0);
+   -webkit-transform: translateY(0);
+   @include media-breakpoint-up(lg) {
+     padding: 0em 3em 0em 3em;
+   }
+   nav {
+     margin: 0 auto;
+     .logo {
+       float: left;
+       &:after {
+         content: '';
+         display: table;
+         clear: both;
+       }
+     }
+     ul {
+       float: right;
+       font-family: 'Open Sans', sans-serif;
+       font-weight: 800;
+       font-size: .75rem;
+       @include media-breakpoint-up(lg) {
+         font-size: .65rem;
+       }
+       list-style: none;
+       padding-left: 0;
+       margin: 0;
+       height: 50px;
+       li {
+         margin: 0.5em;
+         display: inline-block;
+         vertical-align: center;
+         @include media-breakpoint-up(md) {
+           margin-left: 3rem;
+         }
+         a {
+           display: block;
+           padding: 6px 4px 0 4px;
+           @include media-breakpoint-up(lg) {
+             padding: 15px 0 15px 0;
+           }
+         }
+       }
+     }
+   }
+ }
+
+ .active {
+   color: #ffcd05;
+ }
+
+ .char {
+     display: inline-block;
+     position: relative;
+ }
+ .char::before {
+     content: '.';
+     display: inline-block;
+
+     position: absolute;
+     top: -1.2em;
+     left: 0;
+
+     text-align: center;
+     width: 100%;
+
+ }
+
+
+/* ===================================================================
+ * # home
+ *
+ * ------------------------------------------------------------------- */
+
+ /* -------------------------------------------------------------------
+  * ## home content
+  * ------------------------------------------------------------------- */
+  .home-sec {
+    border-radius: 0px;
+    position: relative;
+    z-index: 2;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: calc(140vh);
+    text-align: center;
+    background-color: #f3f4f5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    @include media-breakpoint-up(lg) {
+      height: calc(95vh);
+    }
+  }
+
+  .heading {
+    position: relative;
+    top: 25%;
+    max-height: 700px;
+    margin: 0px auto;
+    text-align: center;
+    @include media-breakpoint-up(lg) {
+      right: 20%;
+      top: 40%;
+    }
+    .color-block {
+      z-index: -1;
+      left: 25%;
+      bottom: -5%;
+      position: absolute;
+      width: 80px;
+      height: 200px;
+      background-color: #E8BB05;
+      @media (min-width: 460px) {
+        left: 30%;
+        width: 100px;
+      }
+      @include media-breakpoint-up(md) {
+        left: 35%;
+      }
+      @include media-breakpoint-up(lg) {
+        left: 40%;
+        font-size: 7vw;
+      }
+    }
+  }
+
+  .heading-text {
+    line-height: 0.8em;
+    font-size: 5em;
+    display: block;
+    padding: 0.2em;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #E8BB05;
+    span {
+      font-family: 'raiderfont';
+      color: #000;
+    }
+  }
+
+  .wave {
+    animation: moveTheWave 2400ms linear infinite;
+    stroke-dasharray: 0 16 101 16;
+  }
+
+  @keyframes moveTheWave {
+    0% {
+      stroke-dashoffset: 0;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      stroke-dashoffset: -133;
+      transform: translate3d(-90px, 0, 0);
+    }
+  }
+
+  /* ===================================================================
+   * # home-about styles
+   *
+   * ------------------------------------------------------------------- */
+
+  .home-about {
+    max-width: 270px;
+    top: 50%;
+    right: 10%;
+    @include media-breakpoint-up(sm) {
+      top: 55%;
+      right: 15%;
+      min-width: 500px;
+    }
+    @include media-breakpoint-up(lg) {
+      min-width: 200px;
+      top: 30%;
+      right: 10%;
+    }
+    text-align: left;
+    position: absolute;
+    a {
+      color: #000;
+      font-family: 'Playfair Display', serif;
+    }
+  }
+
+  .underline--magical {
+    background-image: linear-gradient(120deg, #E8BB05 0%, #FFD11B 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.4em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+    &:hover {
+      background-size: 100% 88%;
+    }
+  }
+
+  .link {
+    position: relative;
+    letter-spacing: 0.1em;
+  }
+
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(30%) rotate(180deg);
+    &--path {
+      fill: transparent;
+      stroke: $dark;
+      stroke-width: 2px;
+    }
+  }
+
+  /* -------------------------------------------------------------------
+   * ## scroll-arrow
+   * ------------------------------------------------------------------- */
+
+   .home-scroll {
+     width: 0 auto;
+     position: fixed;
+     bottom: 0px;
+     left: 0;
+     right: 0;
+     padding: 0;
+     margin-left: 0;
+     width: 50px;
+     @include media-breakpoint-up(sm) {
+       margin-left: 0;
+       width: 50px;
+     }
+   }
+
+  .arrow2 {
+    color: #555;
+    font-size: 1em;
+    margin-top: 40px;
+  }
+
+  /* Trail */
+  .trail {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      background: #555;
+      pointer-events: none;
+    }
+  }
+
+/* Trail mixin */
+@mixin trail($direction, $lenght) {
+	&::after {
+		$opposite-direction: null;
+		$scale-axis: null;
+
+		@if $direction == top {
+			$opposite-direction: bottom;
+		} @else if $direction == right {
+			$opposite-direction: left;
+		} @else if $direction == bottom {
+			$opposite-direction: top;
+		} @else if $direction == left {
+			$opposite-direction: right;
+		}
+
+		@if $direction == left or $direction == right {
+			$scale-axis: X;
+		} @else if $direction == top or $direction == bottom {
+			$scale-axis: Y;
+		}
+
+		#{$opposite-direction}: 100%;
+		margin-#{$opposite-direction}: 1em;
+
+		@if $direction == left or $direction == right {
+			height: 1px;
+			width: $lenght;
+			top: 50%;
+		} @else if $direction == top or $direction == bottom {
+			height: $lenght;
+			width: 1px;
+			left: 50%;
+		}
+
+		@keyframes trail-animation-#{$direction} {
+			0% {
+				transform-origin: $direction;
+				transform: scale#{$scale-axis + '(1)'};
+			} 50% {
+				transform-origin: $direction;
+				transform: scale#{$scale-axis + '(0)'};
+			} 50.01% {
+				transform-origin: $opposite-direction;
+			} 100% {
+				transform-origin: $opposite-direction;
+				transform: scale#{$scale-axis + '(1)'};
+			}
+		}
+	}
+}
+
+/* Trail animation mixin */
+@mixin trail-animation($direction) {
+	&::after {
+		animation: trail-animation-#{$direction} 2s infinite;
+	}
+}
+
+/** Bottom **/
+.trail--bottom {
+	@include trail(top, 3em);
+
+	/*** Animation ***/
+	&.trail--animation {
+		@include trail-animation(top);
+	}
+
+	/*** Hover animation ***/
+	&.trail--animation-hover:hover {
+		@include trail-animation(bottom);
+	}
+}
+
+
+/* ===================================================================
+ * # works styles
+ *
+ * ------------------------------------------------------------------- */
+
+ .subHeading {
+   background-color: #151418;
+   padding: 1em 0 1em 0;
+   span {
+     font-size: 1.6em;
+   }
+ }
+
+ .works-sec {
+   color: #515056;
+   border-radius: 0;
+   text-align: center;
+   background-color: #1c1b20;
+   padding: 0;
+ }
+
+ @media only screen and (max-width: 768px) {
+   .prjct-wrt-right {
+     font-size: 1.5em !important;
+     top: 9% !important;
+   }
+
+   .prjct-wrt-left {
+     font-size: 1.5em !important;
+     top: 9% !important;
+   }
+
+   .prjct-bg {
+     margin-top: 3em !important;
+     margin-bottom: 3em !important;
+   }
+
+   .img-prjct {
+     padding-right: 0px !important;
+     padding-left: 0px !important;
+   }
+
+   .img-prjct:hover {
+     border-radius: 0px !important;
+   }
+ }
+
+ /*** PROJECT BACKGROUND ***/
+ .prjct-bg {
+   background: transparent;
+   margin-top: 5em;
+   margin-bottom: 5em;
+ }
+
+ /*** HOME PAGE PROJECT COVER ***/
+.img-prjct {
+  border-radius: 0px;
+  max-width: 100%;
+  margin: 0;
+  height: auto;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+   transition: all .5s ease;
+
+   position: relative;
+   padding-left: 1em;
+   padding-right: 1em;
+   animation: animatebottom 3s;
+}
+
+.img-prjct:hover {
+  cursor: pointer;
+  opacity: .7;
+  -webkit-transform: scale(0.92);
+  -ms-transform: scale(0.92);
+  transform: scale(0.92);
+}
+
+.prjct-wrt-right {
+  background-color: #E8BB05;
+  position: absolute;
+  right: 3%;
+  top: 9%;
+  font-family: 'raiderfont';
+  font-size: 2.6em;
+  color: #000;
+  font-weight: 700;
+  max-width: 100%;
+}
+
+.prjct-wrt-left {
+  background-color: #E8BB05;
+  position: absolute;
+  left:3%;
+  top:9%;
+  font-family: 'raiderfont';
+  font-size: 2.6em;
+  color: #000;
+  font-weight: 700;
+  max-width: 100%;
+}
+
+.leftInfo {
+  a {
+    color: #EAEAEA;
+  }
+  h5 {
+    @include media-breakpoint-up(sm) {
+      margin: 5rem 0 1rem 0;
+    }
+    @include media-breakpoint-up(lg) {
+      margin: 10rem 0 3em 0;
+    }
+    color: #E0E0E0;
+  }
+  span {
+    color: #515056;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  span:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+  }
+  span:after {
+    margin: 0 0 0 20px;
+  }
+}
+
+.rightInfo {
+  a {
+    color: #EAEAEA;
+  }
+  h5 {
+    @include media-breakpoint-up(sm) {
+      margin: 2rem 0 1rem 0;
+    }
+    @include media-breakpoint-up(lg) {
+      margin: 10rem 0 3em 0;
+    }
+
+    color: #E0E0E0;
+  }
+  span {
+    color: #515056;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  span:before {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+  }
+  span:after {
+    margin: 0 0 0 20px;
+  }
+}
+
+ /* ===================================================================
+ * # skills styles
+ *
+ * ------------------------------------------------------------------- */
+
+ .skills {
+   @include media-breakpoint-up(md) {
+     padding: 5rem 0px;
+   }
+   margin: 0;
+   border-radius: 0;
+   text-align: center;
+   background-color: #1c1b20;
+   color: #515056;
+   .skills-list {
+     padding: 60px 0px;
+     i {
+       font-size: 2em;
+       margin: 10px;
+     }
+     @include media-breakpoint-up(sm) {
+       i {
+         display: inline-block;
+         font-size: 2.5em;
+         margin: 30px;
+       }
+     }
+     @include media-breakpoint-up(lg) {
+       padding: 80px 40px;
+       i {
+         font-size: 3.5em;
+         margin: 35px;
+       }
+     }
+   }
+ }
+
+ .skills-list-1 {
+   padding: 0;
+ }
+ .skills-list-2 {
+   padding: 0;
+ }
+
+
+/* ===================================================================
+* # about styles
+*
+* ------------------------------------------------------------------- */
+
+  .about {
+    background-color: #f3f4f5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    margin: 0;
+    .about-header {
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 6em;
+      }
+      text-align: center;
+    }
+    span {
+      color: #000;
+      font-size: 1.2em;
+    }
+  }
+
+  .about-gif {
+    @include media-breakpoint-up(lg) {
+      display: block;
+      margin: 0 5%;
+    }
+    border: 5px solid #E8BB05;
+    height: calc(45vh);
+    min-height: 280px;
+    min-width: 280px;
+    max-height: 400px;
+    background:
+    linear-gradient(
+    rgba(28, 27, 32, 0.7),
+    rgba(28, 27, 32, 0.7)
+    ), url(https://media.giphy.com/media/pOZhmE42D1WrCWATLK/giphy.gif);
+    background-attachment: relative;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  .about-col {
+    padding-top: 20px;
+    @include media-breakpoint-up(sm) {
+      margin: 0;
+    }
+    @include media-breakpoint-up(md) {
+      margin: 0 2%;
+    }
+    @include media-breakpoint-up(lg) {
+      margin: 0 1vw;
+    }
+  }
+
+
+
+/* ===================================================================
+ * # footer
+ *
+ * ------------------------------------------------------------------- */
+
+ .footer-sec {
+   background-color: #fff;
+   margin: 0;
+   text-align: center;
+ }
+
+ .footer {
+   width: 100%;
+   position: relative;
+   height: auto;
+   background-color: #fff;
+ }
+
+ .social {
+   ul {
+     padding: 0;
+     li {
+       display: inline-block;
+     }
+   }
+ }
+
+ .email {
+   h5 {
+     font-family: 'Playfair Display', serif;
+   }
+ }
+
+ .copyright {
+
+ }
+
+ /* -------------------------------------------------------------------
+  * ## socials
+  * ------------------------------------------------------------------- */
+
+
+    .socials {
+      display: block;
+      position: fixed;
+      top: 35%;
+      left: 0;
+      z-index: 3;
+      width: 3em;
+      i {
+        margin: 2em 1em;
+      }
+    }
+
+    .hovicon {
+      position: absolute;
+      display: block;
+      font-size: 13px;
+      line-height: 20px;
+      cursor: pointer;
+      margin: 10px;
+      border-radius: 50%;
+      text-align: center;
+      position: relative;
+      text-decoration: none;
+      z-index: 1;
+      color: #000;
+    }
+
+    .hovicon:after {
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      content:'';
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+    }
+    .hovicon:before {
+      speak: none;
+      font-size: 13px;
+      line-height: 60px;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      display: block;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Effect 4 */
+    .hovicon.effect-4 {
+      width: 20px;
+      height: 20px;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 1);
+    }
+    .hovicon.effect-4:before {
+      line-height: 22px;
+    }
+    .hovicon.effect-4:after {
+      top: -2px;
+      left: -2px;
+      padding: 0;
+      z-index: 10;
+      border: 2px dashed #000;
+    }
+    .hovicon.effect-4:hover {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+      color: #000;
+    }
+    .hovicon.effect-4:hover i {
+      color: #000;
+    }
+
+    /* Effect 4b */
+    .hovicon.effect-4:hover {
+      -webkit-transition: box-shadow 0.2s;
+      -moz-transition: box-shadow 0.2s;
+      transition: box-shadow 0.2s;
+    }
+    .hovicon.effect-4:hover:after {
+      -webkit-animation: spinAround 9s linear infinite;
+      -moz-animation: spinAround 9s linear infinite;
+      animation: spinAround 9s linear infinite;
+    }
+    @-webkit-keyframes spinAround {
+      from {
+        -webkit-transform: rotate(0deg)
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @-moz-keyframes spinAround {
+      from {
+        -moz-transform: rotate(0deg)
+      }
+      to {
+        -moz-transform: rotate(360deg);
+      }
+    }
+    @keyframes spinAround {
+      from {
+        transform: rotate(0deg)
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
