@@ -8,11 +8,6 @@
 @import "_functions.scss";
 @import "_variables.scss";
 
-/* ===================================================================
- * # Variables
- *
- * ------------------------------------------------------------------- */
-
 
 /* ===================================================================
  * # Mixins
@@ -80,7 +75,7 @@
 
  a {
    text-decoration: none;
-   color: #000;
+   color: #fff;
    &:hover {
      color: #000;
    }
@@ -88,7 +83,7 @@
 
  a:link {
    text-decoration: none;
-   color: #000;
+   color: #fff;
  }
 
  h1 {
@@ -115,14 +110,10 @@
  }
 
  .wrapper {
-   background-color: #fff;
+   background-color: #bdc4c7;
    @include media-breakpoint-up(lg) {
      padding: 3em 3em 0em 3em;
    }
- }
-
- #site-content {
-   background-color: #F3F4F5;
  }
 
 /* ===================================================================
@@ -135,7 +126,6 @@
  * ------------------------------------------------------------------- */
 
  .header-logo {
-   background-color: #fff;
    background-repeat: no-repeat;
    justify-content: center;
    align-items: center;
@@ -154,7 +144,7 @@
  a {
    text-decoration: none;
    &:hover, :focus {
-     color: darken(white, 20%);
+     color: darken(black, 20%);
    }
  }
  // LINKS IN MENU HOVER EFFECT
@@ -165,7 +155,7 @@
    transition: color .35s ease;
    &:before {
      content: '';
-     display:block;
+     display: block;
      position: absolute;
      left: 0;
      bottom: -15px;
@@ -197,12 +187,12 @@
  }
 
  header {
-   position: fixed;
+   position: absolute;
    top: 0;
    left: 0;
    width: 100%;
    padding: .5rem 0em 0em 0em;
-   background: #fff;
+   background: transparent;
    z-index: 3;
    will-change: transform;
    transition: background .3s,
@@ -228,10 +218,9 @@
      ul {
        float: right;
        font-family: 'Open Sans', sans-serif;
-       font-weight: 800;
        font-size: .75rem;
        @include media-breakpoint-up(lg) {
-         font-size: .65rem;
+         font-size: .7rem;
        }
        list-style: none;
        padding-left: 0;
@@ -294,8 +283,7 @@
     margin-bottom: 0px;
     height: calc(140vh);
     text-align: center;
-    background-color: #f3f4f5;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    background-color: transparent;
     @include media-breakpoint-up(lg) {
       height: calc(95vh);
     }
@@ -318,7 +306,8 @@
       position: absolute;
       width: 80px;
       height: 200px;
-      background-color: #E8BB05;
+      background-color: #333745;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e8bb05' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       @media (min-width: 460px) {
         left: 30%;
         width: 100px;
@@ -327,8 +316,9 @@
         left: 35%;
       }
       @include media-breakpoint-up(lg) {
-        left: 40%;
-        font-size: 7vw;
+        left: 35%;
+        width: 150px;
+        height: 250px;
       }
     }
   }
@@ -341,9 +331,12 @@
     padding-top: 0;
     padding-bottom: 0;
     color: #E8BB05;
+    @include media-breakpoint-up(lg) {
+      font-size: 8em;
+    }
     span {
       font-family: 'raiderfont';
-      color: #000;
+      color: #fff;
     }
   }
 
@@ -415,7 +408,7 @@
     transform: translateY(30%) rotate(180deg);
     &--path {
       fill: transparent;
-      stroke: $dark;
+      stroke: #000;
       stroke-width: 2px;
     }
   }
@@ -536,19 +529,11 @@
  *
  * ------------------------------------------------------------------- */
 
- .subHeading {
-   background-color: #151418;
-   padding: 1em 0 1em 0;
-   span {
-     font-size: 1.6em;
-   }
- }
-
  .works-sec {
+   background-color: #f4f4f6;
    color: #515056;
    border-radius: 0;
    text-align: center;
-   background-color: #1c1b20;
    padding: 0;
  }
 
@@ -637,7 +622,7 @@
 
 .leftInfo {
   a {
-    color: #EAEAEA;
+    color: #000;
   }
   h5 {
     @include media-breakpoint-up(sm) {
@@ -646,7 +631,7 @@
     @include media-breakpoint-up(lg) {
       margin: 10rem 0 3em 0;
     }
-    color: #E0E0E0;
+    color: #000;
   }
   span {
     color: #515056;
@@ -751,8 +736,8 @@
 * ------------------------------------------------------------------- */
 
   .about {
-    background-color: #f3f4f5;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    border-radius: 0;
+    background-color: transparent;
     margin: 0;
     .about-header {
       @include media-breakpoint-up(lg) {
@@ -761,8 +746,11 @@
       text-align: center;
     }
     span {
-      color: #000;
+      color: #EAEAEA;
       font-size: 1.2em;
+    }
+    h2 {
+      color: #EAEAEA;
     }
   }
 
@@ -771,7 +759,7 @@
       display: block;
       margin: 0 5%;
     }
-    border: 5px solid #E8BB05;
+    border: 5px solid #000;
     height: calc(45vh);
     min-height: 280px;
     min-width: 280px;
@@ -834,11 +822,10 @@
  .email {
    h5 {
      font-family: 'Playfair Display', serif;
+     a {
+       color: black;
+     }
    }
- }
-
- .copyright {
-
  }
 
  /* -------------------------------------------------------------------
