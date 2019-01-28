@@ -14,20 +14,36 @@
   font-family: "raiderfont";
   src: url(fonts/raiderfont.ttf);
 }
+@font-face {
+  font-family: "bigJohn";
+  src: url(fonts/bigJohn.otf);
+}
+@font-face {
+  font-family: "regularJoe";
+  src: url(fonts/regularJoe.otf);
+}
+@font-face {
+  font-family: "slimJim";
+  src: url(fonts/slimJim.otf);
+}
 * {
   box-sizing: border-box;
 }
 
 body {
   line-height: 1.6;
-  color: #fff;
+  color: #202A33;
   background-color: #fff;
   position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #2F323F;
 }
 a:hover {
   color: #000;
@@ -35,7 +51,7 @@ a:hover {
 
 a:link {
   text-decoration: none;
-  color: #fff;
+  color: #2F323F;
 }
 
 h1 {
@@ -43,30 +59,41 @@ h1 {
 }
 
 h2, h3, h4, h5 {
-  font-family: "raiderfont";
-  color: #1C1B20;
+  font-family: "bigJohn";
+  color: #2F323F;
   word-spacing: 0.5rem;
   letter-spacing: -1px;
   margin-bottom: 1.5em;
 }
 
 span {
-  font-family: "Playfair Display", serif;
+  font-family: "regularJoe";
 }
 
 p {
-  color: #515056;
-  letter-spacing: 0.1rem;
-  font-size: 0.85rem;
-  font-family: "Open Sans", sans-serif;
+  color: #2F323F;
+  font-size: 1.1rem;
+  font-family: "regularJoe";
 }
 
-.wrapper {
-  background-color: #bdc4c7;
-}
 @media (min-width: 992px) {
   .wrapper {
-    padding: 3em 3em 0em 3em;
+    padding: 3em;
+    background-color: #fff;
+  }
+  .wrapper .wrap-div-top {
+    z-index: 9;
+    top: 0;
+    position: fixed;
+    height: 3em;
+    background-color: #fff;
+  }
+  .wrapper .wrap-div {
+    z-index: 9;
+    bottom: 0;
+    position: fixed;
+    height: 2em;
+    background-color: #fff;
   }
 }
 
@@ -75,29 +102,26 @@ p {
  *
  * ------------------------------------------------------------------- */
 /* -------------------------------------------------------------------
- * ## header logo
+ * ## main navigation
  * ------------------------------------------------------------------- */
 .header-logo {
+  background-color: #fff;
+  padding: 0;
+  width: 63px;
+  height: 63px;
+  display: flex;
   background-repeat: no-repeat;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  width: 50px;
-  height: 50px;
-  display: flex;
 }
-
-/* -------------------------------------------------------------------
- * ## main navigation
- * ------------------------------------------------------------------- */
-a {
-  text-decoration: none;
-}
-a:hover, a :focus {
-  color: black;
+@media (min-width: 992px) {
+  .header-logo {
+    margin-left: 3em;
+  }
 }
 
 .menu-left a {
+  font-size: 0.65rem;
   display: inline-block;
   position: relative;
   padding-bottom: 0px;
@@ -108,8 +132,8 @@ a:hover, a :focus {
   display: block;
   position: absolute;
   left: 0;
-  bottom: -15px;
-  height: 5px;
+  bottom: -2px;
+  height: 3px;
   width: 0;
   transition: width 0s ease, background 0.35s ease;
 }
@@ -118,15 +142,15 @@ a:hover, a :focus {
   display: block;
   position: absolute;
   right: 0;
-  bottom: -15px;
-  height: 5px;
+  bottom: -2px;
+  height: 3px;
   width: 0;
-  background: #ffcd05;
+  background: #FFD21E;
   transition: width 0.35s ease;
 }
-.menu-left a:hover:before {
+.menu-left a:hover:before, .menu-left a.active:before {
   width: 100%;
-  background: #ffcd05;
+  background: #FFD21E;
   transition: width 0.35s ease;
 }
 .menu-left a:hover:after {
@@ -136,13 +160,13 @@ a:hover, a :focus {
 }
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.5rem 0em 0em 0em;
-  background: transparent;
-  z-index: 3;
+  padding: 0;
+  background: white;
+  z-index: 10;
   will-change: transform;
   transition: background 0.3s, -webkit-transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1);
   transition: transform 0.5s cubic-bezier(0.694, 0.048, 0.335, 1), background 0.3s;
@@ -152,7 +176,7 @@ header {
 }
 @media (min-width: 992px) {
   header {
-    padding: 0em 3em 0em 3em;
+    margin: 0;
   }
 }
 header nav {
@@ -168,17 +192,10 @@ header nav .logo:after {
 }
 header nav ul {
   float: right;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
+  font-family: "bigJohn";
   list-style: none;
   padding-left: 0;
-  margin: 0;
-  height: 50px;
-}
-@media (min-width: 992px) {
-  header nav ul {
-    font-size: 0.7rem;
-  }
+  margin: 11.1px 0;
 }
 header nav ul li {
   margin: 0.5em;
@@ -187,36 +204,45 @@ header nav ul li {
 }
 @media (min-width: 768px) {
   header nav ul li {
-    margin-left: 3rem;
+    margin-left: 2rem;
   }
 }
 header nav ul li a {
   display: block;
-  padding: 6px 4px 0 4px;
+  padding: 2px;
+}
+
+.hide-nav {
+  transform: translateY(-150% !important);
+  -webkit-transform: translateY(-150%) !important;
+}
+
+ul.menu-left {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  z-index: 10;
+  display: block !important;
+  float: right;
+  max-height: none;
 }
 @media (min-width: 992px) {
-  header nav ul li a {
-    padding: 15px 0 15px 0;
+  ul.menu-left {
+    margin-right: 3em;
   }
 }
-
-.active {
-  color: #ffcd05;
+ul.menu-left:before {
+  content: "";
+  display: table;
+  clear: both;
 }
-
-.char {
-  display: inline-block;
-  position: relative;
-}
-
-.char::before {
-  content: ".";
-  display: inline-block;
-  position: absolute;
-  top: -1.2em;
-  left: 0;
-  text-align: center;
-  width: 100%;
+ul.menu-left.collapse {
+  max-height: 15em !important;
 }
 
 /* ===================================================================
@@ -232,28 +258,22 @@ header nav ul li a {
   z-index: 2;
   margin-top: 0px;
   margin-bottom: 0px;
-  height: calc(140vh);
+  height: 100vh;
   text-align: center;
-  background-color: transparent;
+  background-color: #F5DB05;
 }
 @media (min-width: 992px) {
   .home-sec {
-    height: calc(95vh);
+    height: 85vh;
   }
 }
 
 .heading {
   position: relative;
-  top: 25%;
+  top: 35%;
   max-height: 700px;
   margin: 0px auto;
   text-align: center;
-}
-@media (min-width: 992px) {
-  .heading {
-    right: 20%;
-    top: 40%;
-  }
 }
 .heading .color-block {
   z-index: -1;
@@ -262,8 +282,7 @@ header nav ul li a {
   position: absolute;
   width: 80px;
   height: 200px;
-  background-color: #333745;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e8bb05' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-color: #F2F2F2;
 }
 @media (min-width: 460px) {
   .heading .color-block {
@@ -288,10 +307,8 @@ header nav ul li a {
   line-height: 0.8em;
   font-size: 5em;
   display: block;
-  padding: 0.2em;
-  padding-top: 0;
-  padding-bottom: 0;
-  color: #E8BB05;
+  padding: 0 0.2em 0 0.2em;
+  color: #1E2029;
 }
 @media (min-width: 992px) {
   .heading-text {
@@ -299,8 +316,8 @@ header nav ul li a {
   }
 }
 .heading-text span {
-  font-family: "raiderfont";
-  color: #fff;
+  font-family: "Playfair Display", serif;
+  color: #000;
 }
 
 .wave {
@@ -322,30 +339,26 @@ header nav ul li a {
  * # home-about styles
  *
  * ------------------------------------------------------------------- */
+.home-about-sec {
+  background-color: #EFEAE7;
+}
+
 .home-about {
-  max-width: 270px;
-  top: 50%;
-  right: 10%;
+  align-items: center;
   text-align: left;
-  position: absolute;
 }
 @media (min-width: 576px) {
   .home-about {
-    top: 55%;
-    right: 15%;
     min-width: 500px;
   }
 }
 @media (min-width: 992px) {
   .home-about {
     min-width: 200px;
-    top: 30%;
-    right: 10%;
   }
 }
-.home-about a {
-  color: #000;
-  font-family: "Playfair Display", serif;
+.home-about h5 {
+  font-family: "regularJoe";
 }
 
 .underline--magical {
@@ -389,11 +402,12 @@ header nav ul li a {
   right: 0;
   padding: 0;
   margin-left: 0;
+  margin-bottom: 2em;
   width: 50px;
 }
 @media (min-width: 576px) {
   .home-scroll {
-    margin-left: 0;
+    margin-left: 3em;
     width: 50px;
   }
 }
@@ -458,7 +472,7 @@ header nav ul li a {
  *
  * ------------------------------------------------------------------- */
 .works-sec {
-  background-color: #f4f4f6;
+  background-color: #EFEAE7;
   color: #515056;
   border-radius: 0;
   text-align: center;
@@ -546,19 +560,16 @@ header nav ul li a {
   max-width: 100%;
 }
 
-.leftInfo a {
-  color: #000;
-}
-.leftInfo h5 {
-  color: #000;
+.leftInfo h3 {
+  text-align: left;
 }
 @media (min-width: 576px) {
-  .leftInfo h5 {
+  .leftInfo h3 {
     margin: 5rem 0 1rem 0;
   }
 }
 @media (min-width: 992px) {
-  .leftInfo h5 {
+  .leftInfo h3 {
     margin: 10rem 0 3em 0;
   }
 }
@@ -570,6 +581,38 @@ header nav ul li a {
   align-items: center;
   text-align: center;
 }
+.leftInfo span a {
+  position: relative;
+  padding: 0.35em;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  overflow-x: hidden;
+  transition: color 0.5s ease;
+}
+.leftInfo span a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 0.5px;
+  width: 0;
+  background: #fff;
+  transition: width 0.4s ease;
+}
+.leftInfo span a:hover {
+  cursor: pointer;
+  color: rgba(85, 85, 85, 0.75);
+  transition: color 0.5s ease;
+}
+.leftInfo span a:hover:after {
+  width: 100%;
+  transition: width 0.4s ease;
+}
+.leftInfo span a:focus {
+  outline: 0;
+}
 .leftInfo span:after {
   content: "";
   border-top: 2px solid;
@@ -580,11 +623,8 @@ header nav ul li a {
   margin: 0 0 0 20px;
 }
 
-.rightInfo a {
-  color: #EAEAEA;
-}
 .rightInfo h5 {
-  color: #E0E0E0;
+  text-align: right;
 }
 @media (min-width: 576px) {
   .rightInfo h5 {
@@ -732,16 +772,19 @@ header nav ul li a {
  *
  * ------------------------------------------------------------------- */
 .footer-sec {
-  background-color: #fff;
+  padding: 6em 2em 6em 2em;
   margin: 0;
   text-align: center;
+  background-color: #EFEAE7;
 }
 
 .footer {
   width: 100%;
   position: relative;
   height: auto;
-  background-color: #fff;
+}
+.footer p {
+  font-size: 0.9rem;
 }
 
 .social ul {
@@ -751,17 +794,11 @@ header nav ul li a {
   display: inline-block;
 }
 
-.email h5 {
-  font-family: "Playfair Display", serif;
-}
-.email h5 a {
-  color: black;
-}
-
 /* -------------------------------------------------------------------
  * ## socials
  * ------------------------------------------------------------------- */
 .socials {
+  margin-left: 3em;
   display: block;
   position: fixed;
   top: 35%;

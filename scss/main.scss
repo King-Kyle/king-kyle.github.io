@@ -62,20 +62,41 @@
      src: url(fonts/raiderfont.ttf);
  }
 
+ @font-face {
+     font-family: "bigJohn";
+     src: url(fonts/bigJohn.otf);
+ }
+
+ @font-face {
+     font-family: "regularJoe";
+     src: url(fonts/regularJoe.otf);
+ }
+
+ @font-face {
+     font-family: "slimJim";
+     src: url(fonts/slimJim.otf);
+ }
+
  * {
    box-sizing: border-box;
  }
 
  body {
    line-height: 1.6;
-   color: #fff;;
+   color: #202A33;
    background-color: #fff;
    position: relative;
+
+
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   padding: 0;
  }
 
  a {
    text-decoration: none;
-   color: #fff;
+   color: #2F323F;
    &:hover {
      color: #000;
    }
@@ -83,7 +104,7 @@
 
  a:link {
    text-decoration: none;
-   color: #fff;
+   color: #2F323F;
  }
 
  h1 {
@@ -91,28 +112,41 @@
  }
 
  h2,h3,h4,h5 {
-   font-family: 'raiderfont';
-   color: #1C1B20;
+   font-family: 'bigJohn';
+   color: #2F323F;
    word-spacing: 0.5rem;
    letter-spacing: -1px;
    margin-bottom: 1.5em;
  }
 
  span {
-   font-family: 'Playfair Display', serif;
+   font-family: 'regularJoe';
  }
 
  p {
-   color: #515056;
-   letter-spacing: 0.1rem;
-   font-size: .85rem;
-   font-family: 'Open Sans', sans-serif;
+   color: #2F323F;
+   font-size: 1.1rem;
+   font-family: 'regularJoe';
  }
 
  .wrapper {
-   background-color: #bdc4c7;
    @include media-breakpoint-up(lg) {
-     padding: 3em 3em 0em 3em;
+     padding: 3em;
+     background-color: #fff;
+     .wrap-div-top {
+       z-index: 9;
+       top: 0;
+       position: fixed;
+       height: 3em;
+       background-color: #fff;
+     }
+     .wrap-div {
+       z-index: 9;
+       bottom: 0;
+       position: fixed;
+       height: 2em;
+       background-color: #fff;
+     }
    }
  }
 
@@ -121,150 +155,143 @@
  *
  * ------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------
- * ## header logo
- * ------------------------------------------------------------------- */
+ /* -------------------------------------------------------------------
+  * ## main navigation
+  * ------------------------------------------------------------------- */
 
- .header-logo {
-   background-repeat: no-repeat;
-   justify-content: center;
-   align-items: center;
-   padding: 0;
-   width: 50px;
-   height: 50px;
-   display: flex;
+  // LOGO
+  .header-logo {
+    background-color: #fff;
+    padding: 0;
+    width: 63px;
+    height: 63px;
+    display: flex;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    @include media-breakpoint-up(lg) {
+      margin-left: 3em;
+    }
+  }
 
- }
-
-/* -------------------------------------------------------------------
- * ## main navigation
- * ------------------------------------------------------------------- */
-
- // LINKS RESET
- a {
-   text-decoration: none;
-   &:hover, :focus {
-     color: darken(black, 20%);
-   }
- }
- // LINKS IN MENU HOVER EFFECT
- .menu-left a {
-   display: inline-block;
-   position: relative;
-   padding-bottom: 0px;
-   transition: color .35s ease;
-   &:before {
-     content: '';
-     display: block;
-     position: absolute;
-     left: 0;
-     bottom: -15px;
-     height: 5px;
-     width: 0;
-     transition: width 0s ease, background .35s ease;
-   }
-   &:after {
-     content: '';
-     display: block;
-     position: absolute;
-     right: 0;
-     bottom: -15px;
-     height: 5px;
-     width: 0;
-     background: #ffcd05;
-     transition: width .35s ease;
-   }
-   &:hover:before {
-     width: 100%;
-     background: #ffcd05;
-     transition: width .35s ease;
-   }
-   &:hover:after {
-     width: 100%;
-     background: transparent;
-     transition: all 0s ease;
-   }
- }
-
- header {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   padding: .5rem 0em 0em 0em;
-   background: transparent;
-   z-index: 3;
-   will-change: transform;
-   transition: background .3s,
-   -webkit-transform .5s cubic-bezier(.694,.048,.335,1);
-   transition: transform .5s cubic-bezier(.694,.048,.335,1),background .3s;
-   transition: transform .5s cubic-bezier(.694,.048,.335,1),background .3s,
-   -webkit-transform .5s cubic-bezier(.694,.048,.335,1);
-   transform: translateY(0);
-   -webkit-transform: translateY(0);
-   @include media-breakpoint-up(lg) {
-     padding: 0em 3em 0em 3em;
-   }
-   nav {
-     margin: 0 auto;
-     .logo {
-       float: left;
-       &:after {
-         content: '';
-         display: table;
-         clear: both;
-       }
-     }
-     ul {
-       float: right;
-       font-family: 'Open Sans', sans-serif;
-       font-size: .75rem;
-       @include media-breakpoint-up(lg) {
-         font-size: .7rem;
-       }
-       list-style: none;
-       padding-left: 0;
-       margin: 0;
-       height: 50px;
-       li {
-         margin: 0.5em;
-         display: inline-block;
-         vertical-align: center;
-         @include media-breakpoint-up(md) {
-           margin-left: 3rem;
-         }
-         a {
-           display: block;
-           padding: 6px 4px 0 4px;
-           @include media-breakpoint-up(lg) {
-             padding: 15px 0 15px 0;
-           }
-         }
-       }
-     }
-   }
- }
-
- .active {
-   color: #ffcd05;
- }
-
- .char {
-     display: inline-block;
-     position: relative;
- }
- .char::before {
-     content: '.';
-     display: inline-block;
-
-     position: absolute;
-     top: -1.2em;
-     left: 0;
-
-     text-align: center;
-     width: 100%;
-
- }
+  // LINKS IN MENU HOVER EFFECT
+  .menu-left a {
+    font-size: 0.65rem;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0px;
+    transition: color .35s ease;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 3px;
+      width: 0;
+      transition: width 0s ease, background .35s ease;
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -2px;
+      height: 3px;
+      width: 0;
+      background: #FFD21E;
+      transition: width .35s ease;
+    }
+    &:hover:before, &.active:before {
+      width: 100%;
+      background: #FFD21E;
+      transition: width .35s ease;
+    }
+    &:hover:after {
+      width: 100%;
+      background: transparent;
+      transition: all 0s ease;
+    }
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background: white;
+    z-index: 10;
+    will-change: transform;
+    transition: background .3s,
+    -webkit-transform .5s cubic-bezier(.694,.048,.335,1);
+    transition: transform .5s cubic-bezier(.694,.048,.335,1),background .3s;
+    transition: transform .5s cubic-bezier(.694,.048,.335,1),background .3s,
+    -webkit-transform .5s cubic-bezier(.694,.048,.335,1);
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    @include media-breakpoint-up(lg) {
+      margin: 0;
+    }
+    nav {
+      margin: 0 auto;
+      .logo {
+        float: left;
+        &:after {
+          content: '';
+          display: table;
+          clear: both;
+        }
+      }
+      ul {
+        float: right;
+        font-family: 'bigJohn';
+        list-style: none;
+        padding-left: 0;
+        margin: 11.1px 0;
+        li {
+          margin: 0.5em;
+          display: inline-block;
+          vertical-align: center;
+          @include media-breakpoint-up(md) {
+            margin-left: 2rem;
+          }
+          a {
+            display: block;
+            padding: 2px;
+          }
+        }
+      }
+    }
+  }
+  .hide-nav {
+    transform: translateY(-150%!important);
+    -webkit-transform: translateY(-150%)!important;
+  }
+  ul.menu-left {
+    @include media-breakpoint-up(lg) {
+      margin-right: 3em;
+    }
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    z-index: 10;
+    display: block!important;
+    float: right;
+    max-height: none;
+    &:before {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    &.collapse {
+      max-height: 15em!important;
+    }
+  }
 
 
 /* ===================================================================
@@ -281,23 +308,22 @@
     z-index: 2;
     margin-top: 0px;
     margin-bottom: 0px;
-    height: calc(140vh);
+    height: 100vh;
     text-align: center;
-    background-color: transparent;
+    background-color: #F5DB05;
     @include media-breakpoint-up(lg) {
-      height: calc(95vh);
+      height: 85vh;
     }
   }
 
   .heading {
     position: relative;
-    top: 25%;
+    top: 35%;
     max-height: 700px;
     margin: 0px auto;
     text-align: center;
     @include media-breakpoint-up(lg) {
-      right: 20%;
-      top: 40%;
+
     }
     .color-block {
       z-index: -1;
@@ -306,8 +332,7 @@
       position: absolute;
       width: 80px;
       height: 200px;
-      background-color: #333745;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23e8bb05' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-color: #F2F2F2;
       @media (min-width: 460px) {
         left: 30%;
         width: 100px;
@@ -327,16 +352,14 @@
     line-height: 0.8em;
     font-size: 5em;
     display: block;
-    padding: 0.2em;
-    padding-top: 0;
-    padding-bottom: 0;
-    color: #E8BB05;
+    padding: 0 0.2em 0 0.2em;
+    color: #1E2029;
     @include media-breakpoint-up(lg) {
       font-size: 8em;
     }
     span {
-      font-family: 'raiderfont';
-      color: #fff;
+      font-family: 'Playfair Display', serif;
+      color: #000;
     }
   }
 
@@ -344,7 +367,6 @@
     animation: moveTheWave 2400ms linear infinite;
     stroke-dasharray: 0 16 101 16;
   }
-
   @keyframes moveTheWave {
     0% {
       stroke-dashoffset: 0;
@@ -361,25 +383,20 @@
    *
    * ------------------------------------------------------------------- */
 
+.home-about-sec {
+  background-color: #EFEAE7;
+}
   .home-about {
-    max-width: 270px;
-    top: 50%;
-    right: 10%;
+    align-items: center;
     @include media-breakpoint-up(sm) {
-      top: 55%;
-      right: 15%;
       min-width: 500px;
     }
     @include media-breakpoint-up(lg) {
       min-width: 200px;
-      top: 30%;
-      right: 10%;
     }
     text-align: left;
-    position: absolute;
-    a {
-      color: #000;
-      font-family: 'Playfair Display', serif;
+    h5 {
+      font-family: 'regularJoe';
     }
   }
 
@@ -425,9 +442,10 @@
      right: 0;
      padding: 0;
      margin-left: 0;
+     margin-bottom: 2em;
      width: 50px;
      @include media-breakpoint-up(sm) {
-       margin-left: 0;
+       margin-left: 3em;
        width: 50px;
      }
    }
@@ -530,7 +548,7 @@
  * ------------------------------------------------------------------- */
 
  .works-sec {
-   background-color: #f4f4f6;
+   background-color: #EFEAE7;
    color: #515056;
    border-radius: 0;
    text-align: center;
@@ -621,19 +639,17 @@
 }
 
 .leftInfo {
-  a {
-    color: #000;
-  }
-  h5 {
+  h3 {
     @include media-breakpoint-up(sm) {
       margin: 5rem 0 1rem 0;
     }
     @include media-breakpoint-up(lg) {
       margin: 10rem 0 3em 0;
     }
-    color: #000;
+    text-align: left;
   }
   span {
+    @include line-animation;
     color: #515056;
     display: flex;
     width: 100%;
@@ -653,9 +669,6 @@
 }
 
 .rightInfo {
-  a {
-    color: #EAEAEA;
-  }
   h5 {
     @include media-breakpoint-up(sm) {
       margin: 2rem 0 1rem 0;
@@ -663,8 +676,7 @@
     @include media-breakpoint-up(lg) {
       margin: 10rem 0 3em 0;
     }
-
-    color: #E0E0E0;
+    text-align: right;
   }
   span {
     color: #515056;
@@ -798,16 +810,19 @@
  * ------------------------------------------------------------------- */
 
  .footer-sec {
-   background-color: #fff;
+   padding: 6em 2em 6em 2em;
    margin: 0;
    text-align: center;
+   background-color: #EFEAE7;
  }
 
  .footer {
    width: 100%;
    position: relative;
    height: auto;
-   background-color: #fff;
+   p {
+     font-size: 0.9rem;
+   }
  }
 
  .social {
@@ -819,21 +834,12 @@
    }
  }
 
- .email {
-   h5 {
-     font-family: 'Playfair Display', serif;
-     a {
-       color: black;
-     }
-   }
- }
-
  /* -------------------------------------------------------------------
   * ## socials
   * ------------------------------------------------------------------- */
 
-
     .socials {
+      margin-left: 3em;
       display: block;
       position: fixed;
       top: 35%;
