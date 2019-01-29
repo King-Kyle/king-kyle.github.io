@@ -88,13 +88,6 @@ p {
     height: 3em;
     background-color: #fff;
   }
-  .wrapper .wrap-div {
-    z-index: 9;
-    bottom: 0;
-    position: fixed;
-    height: 2em;
-    background-color: #fff;
-  }
 }
 
 /* ===================================================================
@@ -730,46 +723,6 @@ ul.menu-left.collapse {
   color: #EAEAEA;
 }
 
-.about-gif {
-  border: 5px solid #000;
-  height: calc(45vh);
-  min-height: 280px;
-  min-width: 280px;
-  max-height: 400px;
-  background: url(https://media.giphy.com/media/pOZhmE42D1WrCWATLK/giphy.gif);
-  background-attachment: relative;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-@media (min-width: 992px) {
-  .about-gif {
-    display: block;
-    margin: 0 5%;
-  }
-}
-
-.about-col {
-  padding-top: 20px;
-}
-@media (min-width: 576px) {
-  .about-col {
-    margin: 0;
-  }
-}
-@media (min-width: 768px) {
-  .about-col {
-    margin: 0 2%;
-  }
-}
-@media (min-width: 992px) {
-  .about-col {
-    margin: 0 1vw;
-  }
-}
-
 /* ===================================================================
 * # skills styles
 *
@@ -781,12 +734,8 @@ ul.menu-left.collapse {
   background-color: #1c1b20;
   color: #515056;
 }
-.skills .skills-header {
-  text-align: left;
-}
 @media (min-width: 768px) {
   .skills .skills-header {
-    text-align: center;
     padding: 0px 15em;
   }
 }
@@ -856,6 +805,14 @@ ul.menu-left.collapse {
 }
 .social ul li {
   display: inline-block;
+}
+
+.wrap-div-bottom {
+  z-index: 9;
+  bottom: 0;
+  position: fixed;
+  height: 2em;
+  background-color: #fff;
 }
 
 /* -------------------------------------------------------------------

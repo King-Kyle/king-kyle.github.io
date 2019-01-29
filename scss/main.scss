@@ -140,13 +140,6 @@
        height: 3em;
        background-color: #fff;
      }
-     .wrap-div {
-       z-index: 9;
-       bottom: 0;
-       position: fixed;
-       height: 2em;
-       background-color: #fff;
-     }
    }
  }
 
@@ -759,39 +752,6 @@
     }
   }
 
-  .about-gif {
-    @include media-breakpoint-up(lg) {
-      display: block;
-      margin: 0 5%;
-    }
-    border: 5px solid #000;
-    height: calc(45vh);
-    min-height: 280px;
-    min-width: 280px;
-    max-height: 400px;
-    background:
-     url(https://media.giphy.com/media/pOZhmE42D1WrCWATLK/giphy.gif);
-    background-attachment: relative;
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top center;
-  }
-
-  .about-col {
-    padding-top: 20px;
-    @include media-breakpoint-up(sm) {
-      margin: 0;
-    }
-    @include media-breakpoint-up(md) {
-      margin: 0 2%;
-    }
-    @include media-breakpoint-up(lg) {
-      margin: 0 1vw;
-    }
-  }
-
   /* ===================================================================
   * # skills styles
   *
@@ -799,9 +759,7 @@
 
   .skills {
     .skills-header {
-      text-align: left;
       @include media-breakpoint-up(md) {
-        text-align: center;
         padding: 0px 15em;
       }
       p {
@@ -875,6 +833,14 @@
        display: inline-block;
      }
    }
+ }
+
+ .wrap-div-bottom {
+   z-index: 9;
+   bottom: 0;
+   position: fixed;
+   height: 2em;
+   background-color: #fff;
  }
 
  /* -------------------------------------------------------------------
