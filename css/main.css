@@ -349,92 +349,6 @@ ul.menu-left.collapse {
     transform: translate3d(-90px, 0, 0);
   }
 }
-/* ===================================================================
- * # home-about styles
- *
- * ------------------------------------------------------------------- */
-.home-about-sec {
-  border-radius: 0;
-  background-color: #1C1B20;
-  margin: 0;
-}
-@media (min-width: 576px) {
-  .home-about-sec {
-    padding: 2em 8em 5em 8em;
-  }
-}
-@media (min-width: 768px) {
-  .home-about-sec {
-    padding: 6em 10em 5em 10em;
-  }
-}
-@media (min-width: 992px) {
-  .home-about-sec {
-    padding: 15em 20% 15em 30%;
-  }
-}
-
-.home-about {
-  align-items: center;
-  text-align: left;
-}
-@media (min-width: 576px) {
-  .home-about {
-    min-width: 500px;
-  }
-}
-@media (min-width: 992px) {
-  .home-about {
-    min-width: 200px;
-  }
-}
-.home-about h1 {
-  font-family: "bigJohn";
-  color: #fff;
-  word-spacing: 0.5rem;
-  letter-spacing: -1px;
-  margin-bottom: 1.5em;
-}
-.home-about h1 span {
-  color: #fff;
-}
-.home-about p {
-  color: #F7FDFC;
-}
-.home-about h5 a {
-  color: #F7FDFC;
-}
-
-.underline--magical {
-  background-image: linear-gradient(120deg, #F6DD09 0%, #F6DD09 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 0.1em;
-  background-position: 0 88%;
-  transition: background-size 0.25s ease-in;
-}
-.underline--magical:hover {
-  background-size: 100% 88%;
-}
-
-.link {
-  position: relative;
-  letter-spacing: 0.1em;
-}
-
-.underline {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(30%) rotate(180deg);
-}
-.underline--path {
-  fill: transparent;
-  stroke: #F6DD09;
-  stroke-width: 2px;
-}
-
 /* -------------------------------------------------------------------
  * ## scroll-arrow
  * ------------------------------------------------------------------- */
@@ -700,6 +614,163 @@ ul.menu-left.collapse {
 }
 
 /* ===================================================================
+ * # home-about styles
+ *
+ * ------------------------------------------------------------------- */
+.home-about-sec {
+  border-radius: 0;
+  background-color: #1C1B20;
+  margin: 0;
+  padding: 6em 0 6em 0;
+}
+@media (min-width: 576px) {
+  .home-about-sec {
+    padding: 10em 8em 5em 8em;
+  }
+}
+@media (min-width: 768px) {
+  .home-about-sec {
+    padding: 15em 10em 5em 10em;
+  }
+}
+@media (min-width: 992px) {
+  .home-about-sec {
+    padding: 15em 20% 15em 30%;
+  }
+}
+
+.home-about {
+  align-items: center;
+  text-align: left;
+}
+@media (min-width: 576px) {
+  .home-about {
+    min-width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  .home-about {
+    min-width: 200px;
+  }
+}
+.home-about h1 {
+  font-family: "bigJohn";
+  color: #fff;
+  word-spacing: 0.5rem;
+  letter-spacing: -1px;
+  margin-bottom: 1.5em;
+}
+.home-about h1 span {
+  color: #fff;
+}
+.home-about p {
+  color: #F7FDFC;
+}
+.home-about h5 a {
+  color: #F7FDFC;
+}
+
+.underline--magical {
+  background-image: linear-gradient(120deg, #EC563B 0%, #EC563B 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.1em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+.underline--magical:hover {
+  background-size: 100% 88%;
+}
+
+.link {
+  position: relative;
+  letter-spacing: 0.1em;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(30%) rotate(180deg);
+}
+.underline--path {
+  fill: transparent;
+  stroke: #EC563B;
+  stroke-width: 2px;
+}
+
+/* ===================================================================
+* # about styles
+*
+* ------------------------------------------------------------------- */
+.about {
+  border-radius: 0;
+  background-color: #1c1b20;
+  margin: 0;
+}
+@media (min-width: 992px) {
+  .about {
+    padding: 0 5%;
+  }
+}
+.about .about-header {
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .about .about-header {
+    margin-bottom: 6em;
+  }
+}
+.about span {
+  color: #515056;
+  font-size: 1.2em;
+}
+.about h2, .about p {
+  color: #EAEAEA;
+}
+
+.about-gif {
+  border: 5px solid #000;
+  height: calc(45vh);
+  min-height: 280px;
+  min-width: 280px;
+  max-height: 400px;
+  background: url(https://media.giphy.com/media/pOZhmE42D1WrCWATLK/giphy.gif);
+  background-attachment: relative;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+@media (min-width: 992px) {
+  .about-gif {
+    display: block;
+    margin: 0 5%;
+  }
+}
+
+.about-col {
+  padding-top: 20px;
+}
+@media (min-width: 576px) {
+  .about-col {
+    margin: 0;
+  }
+}
+@media (min-width: 768px) {
+  .about-col {
+    margin: 0 2%;
+  }
+}
+@media (min-width: 992px) {
+  .about-col {
+    margin: 0 1vw;
+  }
+}
+
+/* ===================================================================
 * # skills styles
 *
 * ------------------------------------------------------------------- */
@@ -709,6 +780,18 @@ ul.menu-left.collapse {
   text-align: center;
   background-color: #1c1b20;
   color: #515056;
+}
+.skills .skills-header {
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .skills .skills-header {
+    text-align: center;
+    padding: 0px 15em;
+  }
+}
+.skills .skills-header p {
+  color: #fff;
 }
 @media (min-width: 768px) {
   .skills {
@@ -745,71 +828,6 @@ ul.menu-left.collapse {
 
 .skills-list-2 {
   padding: 0;
-}
-
-/* ===================================================================
-* # about styles
-*
-* ------------------------------------------------------------------- */
-.about {
-  border-radius: 0;
-  background-color: transparent;
-  margin: 0;
-}
-.about .about-header {
-  text-align: center;
-}
-@media (min-width: 992px) {
-  .about .about-header {
-    margin-bottom: 6em;
-  }
-}
-.about span {
-  color: #EAEAEA;
-  font-size: 1.2em;
-}
-.about h2 {
-  color: #EAEAEA;
-}
-
-.about-gif {
-  border: 5px solid #000;
-  height: calc(45vh);
-  min-height: 280px;
-  min-width: 280px;
-  max-height: 400px;
-  background: linear-gradient(rgba(28, 27, 32, 0.7), rgba(28, 27, 32, 0.7)), url(https://media.giphy.com/media/pOZhmE42D1WrCWATLK/giphy.gif);
-  background-attachment: relative;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-@media (min-width: 992px) {
-  .about-gif {
-    display: block;
-    margin: 0 5%;
-  }
-}
-
-.about-col {
-  padding-top: 20px;
-}
-@media (min-width: 576px) {
-  .about-col {
-    margin: 0;
-  }
-}
-@media (min-width: 768px) {
-  .about-col {
-    margin: 0 2%;
-  }
-}
-@media (min-width: 992px) {
-  .about-col {
-    margin: 0 1vw;
-  }
 }
 
 /* ===================================================================
