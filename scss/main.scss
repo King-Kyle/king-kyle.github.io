@@ -10,13 +10,6 @@
 
 
 /* ===================================================================
- * # Mixins
- *
- * ------------------------------------------------------------------- */
-
-
-
-/* ===================================================================
  * # base style overrides
  *
  * ------------------------------------------------------------------- */
@@ -34,11 +27,6 @@
  @font-face {
      font-family: "regularJoe";
      src: url(fonts/regularJoe.otf);
- }
-
- @font-face {
-     font-family: "slimJim";
-     src: url(fonts/slimJim.otf);
  }
 
  * {
@@ -271,147 +259,36 @@
     border-radius: 0px;
     position: relative;
     z-index: 2;
-    margin: 0px;
-    height: 100vh;
-    background-color: #f2f2f2;
+    margin: 0;
+    height: 70vh;
+    background-color: #f6dd09;
+    text-align: center;
+    @include media-breakpoint-up(sm) {
+      height: 45vh;
+    }
     @include media-breakpoint-up(lg) {
-      height: 88vh;
+      height: 50vh;
+    }
+    h1 {
+      margin-top: 2em;
+      font-size: 2em;
+      @include media-breakpoint-up(lg) {
+        font-size: 2em;
+      }
     }
   }
 
-  .heading {
-    position: relative;
-    top: 20%;
-    max-height: 700px;
-    margin: 0px auto;
-    text-align: left;
-  }
-  .color-block {
-    z-index: -1;
-    left: 25%;
-    bottom: -5%;
-    position: absolute;
-    width: 100px;
-    height: 200px;
+  .w1 {
     background-color: #1C1B20;
-    @media (min-width: 460px) {
-      left: 30%;
-      width: 100px;
-    }
-    @include media-breakpoint-up(md) {
-      left: 35%;
-    }
-    @include media-breakpoint-up(lg) {
-      top: 0;
-      left: 0;
-      width: 40%;
-      height: 100%;
-    }
+    color: white;
+    padding: 0.02em;
+    box-shadow:0 0 0 0.5em #1C1B20;
   }
-
-  .heading-text {
-    line-height: 0.8em;
-    font-size: 5em;
-    display: block;
-    padding: 0 0.2em 0 0;
-    color: #93C178;
-    @include media-breakpoint-up(lg) {
-      text-align: left;
-      font-size: 4em;
-    }
-    span {
-      font-family: 'raiderfont';
-      color: #14151B;
-    }
-  }
-
-  .wave {
-    animation: moveTheWave 2400ms linear infinite;
-    stroke-dasharray: 0 16 101 16;
-  }
-  @keyframes moveTheWave {
-    0% {
-      stroke-dashoffset: 0;
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      stroke-dashoffset: -133;
-      transform: translate3d(-90px, 0, 0);
-    }
-  }
-
-  /* ===================================================================
-   * # home-about styles
-   *
-   * ------------------------------------------------------------------- */
-
-   .home-about-sec {
-     border-radius: 0;
-     background-color: #1C1B20;
-     margin: 0;
-     padding: 6em 0 6em 0;
-     @include media-breakpoint-up(sm) {
-       padding: 10em 8em 5em 8em;
-     }
-     @include media-breakpoint-up(md) {
-       padding: 15em 10em 5em 10em;
-     }
-     @include media-breakpoint-up(lg) {
-       padding: 15em 20% 15em 30%;
-     }
-   }
-   .home-about {
-     align-items: center;
-     @include media-breakpoint-up(sm) {
-       min-width: 500px;
-     }
-     @include media-breakpoint-up(lg) {
-       min-width: 200px;
-     }
-     text-align: left;
-     h3 {
-       font-family: 'bigJohn';
-       color: #1C1B20;
-       word-spacing: 0.5rem;
-       letter-spacing: -1px;
-       margin-bottom: 1.5em;
-       & span {
-         color: #1C1B20;
-       }
-     }
-     h5 a {
-       color: #1C1B20;
-     }
-   }
-
-  .underline--magical {
-    background-image: linear-gradient(120deg, #EC563B 0%, #EC563B 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 0.1em;
-    background-position: 0 88%;
-    transition: background-size 0.25s ease-in;
-    &:hover {
-      background-size: 100% 88%;
-    }
-  }
-
-  .link {
+  .w2 {
+    word-spacing: 0.5rem;
+    letter-spacing: -1px;
+    font-family: "bigJohn";
     position: relative;
-    letter-spacing: 0.1em;
-  }
-
-  .underline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: translateY(30%) rotate(180deg);
-    &--path {
-      fill: transparent;
-      stroke: #EC563B;
-      stroke-width: 2px;
-    }
   }
 
   /* -------------------------------------------------------------------
@@ -626,6 +503,7 @@
 }
 
 .leftInfo {
+  padding-bottom: 4em;
   @include media-breakpoint-up(md) {
     padding: 3em 2em;
   }
@@ -665,6 +543,7 @@
 }
 
 .rightInfo {
+  padding-bottom: 4em;
   @include media-breakpoint-up(md) {
     padding: 4em 2em;
   }
@@ -672,13 +551,13 @@
     padding: 10em 5em;
   }
   h2 {
+    @include media-breakpoint-up(md) {
+      font-size: 1.5em;
+    }
     color: #F2F2F2;
     text-align: left;
   }
   h5 {
-    @include media-breakpoint-up(md) {
-      font-size: 1.5em;
-    }
     width: 50%;
     font-family: "Playfair Display", sans-serif;
     margin: 0;
@@ -718,7 +597,7 @@
     }
     h5 {
       margin-bottom: 0.5em;
-      color: gray;
+      color: #f2f2f2;
     }
     h2, p {
       color: #515056;
