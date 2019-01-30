@@ -5,7 +5,7 @@
 
  // SHOW/HIDE NAV
 
- // Hide Header on on scroll down
+ // Hide Header on scroll down
  var didScroll;
  var lastScrollTop = 0;
  var delta = 5;
@@ -51,7 +51,6 @@
   *
   * ------------------------------------------------------------------- */
 
-
   jQuery(document).ready(function($) {
 
      $('.smoothscroll').on('click',function (e) {
@@ -89,7 +88,6 @@
  * # LINK UNDERLINE ZIG-ZAG
  *
  * ------------------------------------------------------------------- */
-
 
  var width = $('.underline').width();
 
