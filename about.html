@@ -2,152 +2,151 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="K!sbag Design Studio" />
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="img/favicon.png" rel="shortcut icon" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
+
+  <script src="js/modernizr.js"></script>
+
   <title>Kyle King</title>
-  <!-- mobile specific metas
-  ================================================== -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- CSS
-  ================================================== -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/font-awesome-animation.min.css">
-  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <!-- favicons
-  ================================================== -->
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-  <link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
+<body>
 
-<body data-spy="scroll" data-target="#navigation">
-  <div class="wrapper" id="top">
-    <di class="col-md-12 wrap-div-top"></di>
-    <!-- header
-    ================================================== -->
-    <header>
+  <!--- PAGE LOADING --->
+  <div class="preloading fadeIn">
 
-      <div class="header">
-        <nav id="navigation">
-          <a class="smoothscroll logo" href="#top">
-            <img src="images/logo4.png" alt="logo" class="header-logo">
-          </a>
-          <ul class="menu-left">
-            <li><a href="index.html">HOME</a></li>
-            <li><a class="active smoothscroll" href="#home">ABOUT</a></li>
-          </ul>
-        </nav>
-      </div> <!-- end header-div -->
+    <!--- NAV BAR --->
+    <div class="nav-ttl">
+      Kyle King
+    </div>
 
-    </header>
+    <div class="right-menu">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary-menu" data-toggle="modal" data-target="#exampleModalLong">
+        Menu
+      </button>
 
-    <!-- about
-    ================================================== -->
-
-    <section id="about" class="jumbotron about">
-
-      <div class="container-fluid">
-        <div class="row">
-          <div class="about-gif col-sm-6">
-            <img src="https://media.giphy.com/media/pOZhmE42D1WrCWATLK/giphy.gif" class="img-fluid" alt="coding-image">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header-menu">
+              <div class="menu-t">
+                <div class="open-menu-title">
+                  Kyle King
+                </div>
+                <div>
+                  <a class="menu-links" href="index.html"> Home </a>
+                </div>
+                <div>
+                  <a class="menu-links" href="works.html"> Works </a>
+                </div>
+                <div class="menu-links-on" >
+                  About
+                </div>
+                <button type="button" class="menu-close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="about-col col-sm-6">
-            <h5>Who am I:</h5>
-            <p>
-              A self taught developer. <br />
-              Working in the finance industry originally, I quickly realised it was not for me.
-              That's when I discovered development. I've always been a tech nerd as well as an art lover, and it's made me a huge fan of the front-end.
-            </p>
-            <h5>Residing in:</h5>
-            <p>
-              Port Elizabeth, EC.
-            </p>
-            <h5>Working on:</h5>
-            <p>
-              Currently working freelance, while occasionally creating side projects or exploring the front-end.
-            </p>
+        </div>
+      </div>
+    </div>
+
+    <!--- THE END NAV BAR --->
+
+    <div class="container">
+
+      <!--- HERO HEADER --->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="works-hero-bg" >
+            <h1 class="fade-anime-top"> About Me </h1>
+          </div>
+        </div>
+      </div>
+      <!--- THE END HERO HEADER --->
+
+      <!--- ABOUT --->
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <div class="lg-col-bg" >
+            <div class="lg-col-wrt"> I'm self taught.
+              Working in the finance industry originally, I quickly realised it was not for me, thats when I discovered the world of development and from the moment I typed 'Hello world' on my computer, I was hooked. I'd found my calling. While most people watch Netflix for fun, you can find me behind a computer screen, my face glowing green from the command prompt. I've always been a tech nerd as well as an art lover, and it's made me a huge fan of the front-end.
+            </div>
+          </div>
+        </div>
+
+          <div class="col-md-6 col-xs-12">
+            <div class="lg-col-bg2" >
+              <img src="https://media.giphy.com/media/pOZhmE42D1WrCWATLK/giphy.gif" alt="" class="img-lg-col2">
+            </div>
           </div>
 
         </div>
-      </div>
+        <!--- THE END ABOUT CLIENT --->
 
-      <div class="container home-scroll">
-        <a href="#footer" class="smoothscroll trail trail--bottom trail--animation">
-          <i class="fas fa-angle-down  faa-bounce animated arrow2"></i>
-        </a>
-      </div>
-
-    </section> <!-- end about-sec -->
-
-    <!-- skills
-    ================================================== -->
-
-    <section id="skills" class="jumbotron skills">
-      <div class="skills-header col-sm-12">
-        <p>I am constantly working to improve myself in the latest tech and design trends. Throughout my learning journey I've come into contact
-          with and I'm currently comfortable with some of these technologies.
-        </p>
-      </div>
-
-      <div class="col-sm skills-list">
-        <div class="col-sm skills-list-2">
-          <i class="fab fa-html5"></i>
-          <i class="fab fa-css3"></i>
-          <i class="fab fa-sass"></i>
-          <i class="fab fa-js-square"></i>
-          <i class="devicon-photoshop-plain"></i>
         </div>
-        <div class="col-sm skills-list-1">
-          <i class="fab fa-react"></i>
-          <i class="fab fa-git"></i>
-          <i class="devicon-bootstrap-plain"></i>
-          <i class="devicon-jquery-plain"></i>
-          <i class="devicon-python-plain"></i>
-        </div>
-      </div>
-    </section> <!-- end skills-sec -->
 
-      <!-- footer
-      ================================================== -->
-      <footer id="footer" class="jumbotron footer-sec">
-
-        <div class="footer">
-
+        <!--- WORKS & LOGOS BUTTON --->
+        <div class="container">
           <div class="row">
-            <div class="col-sm-12 mail">
-              <a class="link" href="mailto:kylek918@icloud.com?Subject=Hey%20there"><span>For Hire</span></a>
+            <div class="col-md-6 col-xs-6">
+              <div class="allprojects-bg" >
+                <a class="btn-ltstlk" href="works.html" role="button">WORKS</a>
+              </div>
             </div>
 
-            <div class="col-md-12 social">
-              <ul>
-                <a href="https://codepen.io/JustKyle/" target="_blank"><li><i class="hovicon effect-4 fab fa-codepen"></i></li></a>
-                <a href="https://github.com/King-Kyle" target="_blank"><li><i class="hovicon effect-4 fab fa-github-alt"></i></li></a>
-                <a href="https://www.linkedin.com/in/kyle-king-19660199/" target="_blank"><li><i class="hovicon effect-4 fab fa-linkedin-in"></i></li></a>
-              </ul>
-            </div>
-
-            <div class="col-sm-12 copyright">
-              <p>
-                © Kyle King 2019
-              </p>
+            <div class="col-md-6 col-xs-6">
+              <div class="allprojects-bg" >
+                <a class="btn-ltstlk" href="index.html" role="button">HOME</a>
+              </div>
             </div>
           </div>
+        </div>
+        <!--- THE END WORKS & LOGOS BUTTON --->
+
+        <!--- FOOTER --->
+        <div class="container">
+          <div class="row">
+            <div class="footer-bg" >
+              <div class="col-md-4 col-xs-12">
+                <div class="shw-cs3"> Get in Touch </div>
+                <a href="mailto:kylek918@icloud.com?Subject=Hey%20there"> <div class="ftr-lnk"> kylek918@icloud.com  </div>
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                  <a target="_blank" href="https://github.com/King-Kyle"> <div class="ftr-lnk"> Github </div> </a>
+                  <a target="_blank" href="https://codepen.io/JustKyle/"> <div class="ftr-lnk"> Codepen </div> </a>
+                  <a target="_blank" href="https://www.linkedin.com/in/kyle-king-19660199/" > <div class="ftr-lnk"> Linkedin </div> </a>
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                  <a href="index.html"> <div class="ftr-lnk"> Home </div> </a>
+                  <a href="works.html"> <div class="ftr-lnk"> Works </div> </a>
+                  <div class="ftr-lnk-on"> About </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!--- THE END FOOTER --->
+
+          <!--- SCRIPTS --->
+          <script src="js/jquery-2.1.1.js"></script>
+          <script src="js/main.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+          <!--- THW END SCRIPTS --->
 
         </div>
-      </footer> <!-- end footer-sec -->
-      <div class="col-md-12 wrap-div-bottom"></div>
-    </div> <!-- end site-content -->
+        <!--- THE PAGE LOADING --->
 
+      </body>
 
-
-  </div> <!-- end wrapper -->
-  <!-- Java Script
-  ================================================== -->
-  <script src="js/jquery-3.3.1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-</body>
-
-</html>
+      </html>
