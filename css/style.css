@@ -969,6 +969,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
    font-weight: 700;
    max-width: 100%;
 }
+.prjct-wrt-right .w1 {
+  background-color: white;
+  color: black;
+  padding: 0.02em;
+  box-shadow: 0 0 0 0.5em white;
+}
+.prjct-wrt-right .w2 {
+  position: relative;
+}
 
 .prjct-wrt-left {
    position: absolute;
@@ -978,6 +987,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
    color: #161616;
    font-weight: 700;
    max-width: 100%;
+}
+.prjct-wrt-left .w1 {
+  background-color: white;
+  color: black;
+  padding: 0.02em;
+  box-shadow: 0 0 0 0.5em white;
+}
+.prjct-wrt-left .w2 {
+  position: relative;
 }
 /*** THE END HOME PAGE PROJECT COVER ***/
 
